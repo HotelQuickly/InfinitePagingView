@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, InfinitePagingViewScrollDirection) {
  @var InfinitePagingViewScrollDirection
  */
 @property (nonatomic, assign) InfinitePagingViewScrollDirection scrollDirection;
-@property (nonatomic, assign) InfinitePagingViewMoveDirection moveDirection;
+@property (nonatomic, assign) InfinitePagingViewMoveDirection moveHorizontalDirection;
 
 /*!
  @var NSInteger index of page views.

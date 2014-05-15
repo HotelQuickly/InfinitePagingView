@@ -172,9 +172,9 @@
 {
     
     if (self.lastContentOffset > scrollView.contentOffset.x)
-        self.moveDirection = InfinitePagingViewMoveDirectionRight;
+        self.moveHorizontalDirection = InfinitePagingViewMoveDirectionRight;
     else if (self.lastContentOffset < scrollView.contentOffset.x)
-        self.moveDirection = InfinitePagingViewMoveDirectionLeft;
+        self.moveHorizontalDirection = InfinitePagingViewMoveDirectionLeft;
     
     self.lastContentOffset = scrollView.contentOffset.x;
     
