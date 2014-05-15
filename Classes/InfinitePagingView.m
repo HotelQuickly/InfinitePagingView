@@ -34,7 +34,6 @@
 @implementation InfinitePagingView
 {
     UIScrollView *_innerScrollView;
-    NSMutableArray *_pageViews;
     NSInteger _lastPageIndex;
 }
 
@@ -78,10 +77,10 @@
 
 - (void)addPageView:(UIView *)pageView
 {
-    if (nil == _pageViews) {
-        _pageViews = [NSMutableArray array];
+    if (nil == self.pageViews) {
+        self.pageViews = [NSMutableArray array];
     }
-    [_pageViews addObject:pageView];
+    [self.pageViews addObject:pageView];
     [self layoutPages];
 }
 
@@ -233,8 +232,7 @@
     }
     
     NSUInteger idx = 0;
-    for (UIView *pageView in _pageViews) {
-        UIView *pageView = [_pageViews objectAtIndex:idx];
+    for (UIView *pageView in self.pageViews) {
         if (_scrollDirection == InfinitePagingViewHorizonScrollDirection) {
             pageView.center = CGPointMake(idx * _innerScrollView.frame.size.width + _innerScrollView.frame.size.width / 2, _innerScrollView.center.y);
         } else {
