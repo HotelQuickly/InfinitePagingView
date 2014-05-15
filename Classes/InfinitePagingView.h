@@ -96,6 +96,8 @@ typedef NS_ENUM(NSInteger, InfinitePagingViewScrollDirection) {
 
 
 @property (nonatomic,strong) NSMutableArray *pageViews;
+
+@property (nonatomic,strong) UIScrollView *scrollView;
 /*!
  Add a view object to inner scrollView view.
  @method addPageView:
