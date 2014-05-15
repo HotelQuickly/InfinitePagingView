@@ -46,14 +46,26 @@
 - (void)pagingView:(InfinitePagingView *)pagingView didEndDecelerating:(UIScrollView *)scrollView atPageIndex:(NSInteger)pageIndex;
 @end
 
+
+typedef NS_ENUM(NSInteger, InfinitePagingViewMoveDirection) {
+    InfinitePagingViewMoveDirectionNone,
+    InfinitePagingViewMoveDirectionRight,
+    InfinitePagingViewMoveDirectionLeft,
+    InfinitePagingViewMoveDirectionUp,
+    InfinitePagingViewMoveDirectionDown,
+    InfinitePagingViewMoveDirectionCrazy
+};
+
 /*!
  The direction of scroll.
  @typedef InfinitePagingViewScrollDirection
  */
-typedef enum {
+
+typedef NS_ENUM(NSInteger, InfinitePagingViewScrollDirection) {
     InfinitePagingViewHorizonScrollDirection,
-    InfinitePagingViewVerticalScrollDirection,
-} InfinitePagingViewScrollDirection;
+    InfinitePagingViewVerticalScrollDirection
+};
+
 
 /*!
  * @class InfinitePagingView
@@ -70,6 +82,7 @@ typedef enum {
  @var InfinitePagingViewScrollDirection
  */
 @property (nonatomic, assign) InfinitePagingViewScrollDirection scrollDirection;
+@property (nonatomic, assign) InfinitePagingViewMoveDirection moveDirection;
 
 /*!
  @var NSInteger index of page views.

@@ -31,6 +31,12 @@
 
 #import "InfinitePagingView.h"
 
+@interface InfinitePagingView()
+
+@property (nonatomic,assign) CGFloat lastContentOffset;
+
+@end
+
 @implementation InfinitePagingView
 {
     UIScrollView *_innerScrollView;
@@ -164,6 +170,14 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    
+    if (self.lastContentOffset > scrollView.contentOffset.x)
+        self.moveDirection = InfinitePagingViewMoveDirectionRight;
+    else if (self.lastContentOffset < scrollView.contentOffset.x)
+        self.moveDirection = InfinitePagingViewMoveDirectionLeft;
+    
+    self.lastContentOffset = scrollView.contentOffset.x;
+    
     if (nil != delegate && [delegate respondsToSelector:@selector(pagingView:didScroll:)]) {
         [delegate pagingView:self didScroll:_innerScrollView];
     }
